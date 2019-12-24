@@ -4,6 +4,10 @@ import Recipe from './Recipe'
 export default class RecipeList extends Component {
    render() {
       const { recipes } = this.props;
+      console.log(recipes);
+
+      
+      
       return (
          <>
             <div className="container py-5">
@@ -15,7 +19,7 @@ export default class RecipeList extends Component {
                </div>
                {/*  end of title */}
                <div className="row">
-                  { recipes.map(recipe => (<Recipe key={ recipe.recipe_id } recipe={ recipe }></Recipe>)) }
+                  { Object.keys(recipes).map((key, index) => (<Recipe key={ recipes[key].id } recipe={ recipes[key] }></Recipe>)) }
                </div>
             </div>
          </>

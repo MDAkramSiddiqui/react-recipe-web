@@ -6,18 +6,17 @@ export default class singleRecipe extends Component {
    constructor(props) {
       super(props);
       // console.log(this.props);
-      const id = this.props.match.id;
+      const id = this.props.match.params.id;
       this.state = {
          // recipe: recipeData,
          recipe: {},
-         id: 715538,
+         id,
          loading: true
       }
    }
 
    async componentDidMount() {
-      // const url1 = `https://api.spoonacular.com/recipes/${ this.state.id }/ingredientWidget.json?apiKey=1f23a551e02e4d8cb5a9410fbaa0d8eb`;
-      // const url2 = `https://api.spoonacular.com/recipes/107867/ingredientWidget.json?apiKey=1f23a551e02e4d8cb5a9410fbaa0d8eb`;
+      
       const url =  `https://api.spoonacular.com/recipes/informationBulk?ids=${ this.state.id }&apiKey=${ process.env.REACT_APP_API_KEY }`
       try {
          // fetch(url).then()
